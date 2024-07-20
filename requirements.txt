@@ -1,0 +1,5 @@
+# install
+selenium
+beautifulsoup4
+tabulate
+webdriver-manager
