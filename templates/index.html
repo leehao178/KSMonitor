@@ -1,12 +1,30 @@
-<div>
-    <canvas id="myChart1"></canvas>
-    <canvas id="myChart2"></canvas>
+<style>
+    .chart-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    canvas {
+      margin: 10px;
+    }
+  </style>
+
+
+<div class="chart-container">
+    <canvas width="420" height="240" id="myChart1"></canvas>
+    <canvas width="420" height="240" id="myChart2"></canvas>
+    <canvas width="420" height="240" id="myChart3"></canvas>
+    <canvas width="420" height="240" id="myChart4"></canvas>
+    <canvas width="420" height="240" id="myChart5"></canvas>
+    <canvas width="420" height="240" id="myChart6"></canvas>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <script>
     const ctx1 = document.getElementById('myChart1');
+    // ctx1.height(500);
+    // ctx1.width(500);
     var x = {{ x|tojson }};
     var y = {{ y|tojson }};
     console.log(x)
@@ -21,12 +39,16 @@
         }]
       },
       options: {
+        responsive: false,
         scales: {
           y: {
             beginAtZero: true
           }
         }
       }
+    //   options: {
+    //     maintainAspectRatio: false,
+    // }
     });
     const ctx2 = document.getElementById('myChart2');
     new Chart(ctx2, {
@@ -40,11 +62,112 @@
         }]
       },
       options: {
+        responsive: false,
         scales: {
           y: {
             beginAtZero: true
           }
         }
       }
+    //   options: {
+    //     maintainAspectRatio: false,
+    // }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+    new Chart(ctx3, {
+      type: 'line',
+      data: {
+        labels: x,
+        datasets: [{
+          label: '# of Votes1',
+          data: y,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    //   options: {
+    //     maintainAspectRatio: false,
+    // }
+    });
+
+    const ctx4 = document.getElementById('myChart4');
+    new Chart(ctx4, {
+      type: 'line',
+      data: {
+        labels: x,
+        datasets: [{
+          label: '# of Votes1',
+          data: y,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    //   options: {
+    //     maintainAspectRatio: false,
+    // }
+    });
+
+    const ctx5 = document.getElementById('myChart5');
+    new Chart(ctx5, {
+      type: 'line',
+      data: {
+        labels: x,
+        datasets: [{
+          label: '# of Votes1',
+          data: y,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    //   options: {
+    //     maintainAspectRatio: false,
+    // }
+    });
+
+
+    const ctx6 = document.getElementById('myChart6');
+    new Chart(ctx6, {
+      type: 'line',
+      data: {
+        labels: x,
+        datasets: [{
+          label: '# of Votes1',
+          data: y,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    //   options: {
+    //     maintainAspectRatio: false,
+    // }
     });
   </script>
