@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+import csv
 
 app = Flask(__name__)
 
@@ -9,6 +9,7 @@ def chart():
     values = [10,9,8,7,6,4,7,8]
     x = [1, 2, 3, 4, 5]
     y = [10, 8, 6, 4, 2]
+
     return render_template('index.html', values=values, labels=labels, x=x, y=y)
 
 if __name__ == "__main__":
