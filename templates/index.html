@@ -1,7 +1,7 @@
 <style>
     .chart-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
     }
     canvas {
@@ -11,12 +11,12 @@
 
 
 <div class="chart-container">
-    <canvas width="420" height="340" id="myChart1"></canvas>
-    <canvas width="420" height="340" id="myChart2"></canvas>
-    <canvas width="420" height="340" id="myChart3"></canvas>
-    <canvas width="420" height="340" id="myChart4"></canvas>
-    <canvas width="420" height="340" id="myChart5"></canvas>
-    <canvas width="420" height="340" id="myChart6"></canvas>
+    <canvas width="720" height="720" id="myChart1"></canvas>
+    <canvas width="720" height="720" id="myChart2"></canvas>
+    <canvas width="720" height="720" id="myChart3"></canvas>
+    <canvas width="720" height="720" id="myChart4"></canvas>
+    <canvas width="720" height="720" id="myChart5"></canvas>
+    <canvas width="720" height="720" id="myChart6"></canvas>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -67,7 +67,9 @@
                                     data: results.data.map(row => row[col]),
                                     borderColor: color,
                                     borderWidth: 1,
-                                    fill: false
+                                    fill: false,
+                                    pointRadius: 1, // 設置數據點的半徑
+                                    pointHoverRadius: 4 // 設置懸停時數據點的半徑
                                 };
     
                                 if (metric === 'Hashrate') {

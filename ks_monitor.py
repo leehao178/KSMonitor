@@ -102,9 +102,9 @@ if __name__ == '__main__':
         new = time.strftime('%Y/%m/%d %H:%M:%S',time.localtime(time.time()))
         csvdata = [new]
 
-        if os.path.isfile('./static/output.csv') == False:
+        if os.path.isfile('./static/data.csv') == False:
             isfile = False
-        with open('./static/output.csv', 'a', newline='') as csvfile:
+        with open('./static/data.csv', 'a', newline='') as csvfile:
             # 建立 CSV 檔寫入器
             writer = csv.writer(csvfile)
             if isfile == False:
@@ -117,4 +117,4 @@ if __name__ == '__main__':
                 csvdata = extract_data(ip=ip.strip(), csvdata=csvdata)
             # 寫入一列資料
             writer.writerow(csvdata)
-        time.sleep(300)
+        time.sleep(600)
