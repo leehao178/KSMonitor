@@ -11,12 +11,12 @@
 
 
 <div class="chart-container">
-    <canvas width="420" height="240" id="myChart1"></canvas>
-    <canvas width="420" height="240" id="myChart2"></canvas>
-    <canvas width="420" height="240" id="myChart3"></canvas>
-    <canvas width="420" height="240" id="myChart4"></canvas>
-    <canvas width="420" height="240" id="myChart5"></canvas>
-    <canvas width="420" height="240" id="myChart6"></canvas>
+    <canvas width="420" height="340" id="myChart1"></canvas>
+    <canvas width="420" height="340" id="myChart2"></canvas>
+    <canvas width="420" height="340" id="myChart3"></canvas>
+    <canvas width="420" height="340" id="myChart4"></canvas>
+    <canvas width="420" height="340" id="myChart5"></canvas>
+    <canvas width="420" height="340" id="myChart6"></canvas>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -85,27 +85,38 @@
                                 }
                             }
                         });
+
+                        const yAxisSettings = {
+                        myChart1: { min: 180, max: 280 },
+                        myChart2: { min: 3500, max: 6100 },
+                        myChart3: { min: 40, max: 140 },
+                        myChart4: { min: 55, max: 70 },
+                        myChart5: { min: 380, max: 420 },
+                        myChart6: { min: 640, max: 700 }
+                    };
     
-                        Object.keys(chartGroups).forEach((chartId, index) => {
-                            if (chartGroups[chartId].length > 0) {
-                                const ctx = document.getElementById(chartId).getContext('2d');
-                                new Chart(ctx, {
-                                    type: 'line',
-                                    data: {
-                                        labels: labels,
-                                        datasets: chartGroups[chartId]
-                                    },
-                                    options: {
-                                        responsive: false,
-                                        scales: {
-                                            y: {
-                                                beginAtZero: true
-                                            }
+                    Object.keys(chartGroups).forEach((chartId) => {
+                        if (chartGroups[chartId].length > 0) {
+                            const ctx = document.getElementById(chartId).getContext('2d');
+                            new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: labels,
+                                    datasets: chartGroups[chartId]
+                                },
+                                options: {
+                                    responsive: false,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: false,
+                                            min: yAxisSettings[chartId].min,
+                                            max: yAxisSettings[chartId].max
                                         }
                                     }
-                                });
-                            }
-                        });
+                                }
+                            });
+                        }
+                    });
                     }
                 });
             })
